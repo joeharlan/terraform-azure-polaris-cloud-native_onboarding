@@ -13,7 +13,7 @@ module "polaris-azure-cloud-native_subscription_1" {
   source                              = "../terraform-azure-polaris-cloud-native_subscription"
   
   azure_service_principal_object_id   = module.polaris-azure-cloud-native_tenant.azure_service_principal_object_id
-  azure_subscription_id               = "abcdefgh-0123-45ij-6789-012345678901"
+  azure_subscription_id               = var.subscription_id
   azure_resource_group_name           = "Rubrik-Backups-RG"
   azure_resource_group_region         = "westus"
   azure_resource_group_tags           = {
@@ -23,9 +23,9 @@ module "polaris-azure-cloud-native_subscription_1" {
   exocompute_details                  = {
     exocompute_config_1 = {
       region                    = "westus"
-      subnet_name               = "subnet1"
-      vnet_name                 = "vnet1"
-      vnet_resource_group_name  = "Network-RG"
+      subnet_name               = "sn-rubrik-exocompute"
+      vnet_name                 = "vnet-rubrik-exocompute"
+      vnet_resource_group_name  = "rg-test-exocompute"
       pod_overlay_network_cidr  = "10.244.0.0/16"
     }
   }
